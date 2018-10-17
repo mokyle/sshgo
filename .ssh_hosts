@@ -1,0 +1,6 @@
++lo
+    docker@127.0.0.1 -p 7700 --expect [{"password:":" "}, {"$":"sudo su"}] #docker
++me
+    root@192.168.31.1 --expect [{"passwd":"123456789"}] #missh
+    root@192.168.31.4 --expect [{"passwd":"123456789"}, {"ps1":"server"}] #31.4
+    root@192.168.31.1 --expect [{"passwd":"123456789"}, {"#":"ssh root@192.168.31.4 && exit"}, {"Do you want to continue connecting?":"y"}, {"passwd":"123456789"}, {"ps1-prod":"\\h:server"}] #missh->server

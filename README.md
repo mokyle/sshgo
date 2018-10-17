@@ -1,44 +1,47 @@
 sshgo
 =====
 
-script for managing ssh hosts list
+​	用于管理ssh主机列表的脚本
 
-## screenshot
-![screenshot](https://raw.github.com/emptyhua/sshgo/master/screenshot.png)
+- 支持自动输入密码
+- 支持登录后自动执行命令
+- 支持登录后自动跳转到其他机器。（即所谓跳板机登录）
+- 支持终端自动设置Title（仅支持bash）
 
-## ~/.ssh_hosts example
+## 预览图
+![screenshot](https://raw.github.com/mokyle/sshgo/master/screenshot.png)
 
-    #add `-` before the line can close node 
-    -Home
-        root@192.168.1.106
-    Work
-        root@comp1 -p 9999 #CentOS 5 X64
-        root@comp2 -p 9999 #CentOS 6 X64
-        root@comp3 -p 9999 #Debian 6 X64
-    VHost
-        VMWare
-            test@vm1
-            test@vm2
-            test@vm3
-            test@vm4
-        -VirtualBox:
-            test@vbox1
-            test@vbox2
-            test@vbox3
-            test@vbox4
-    MacOS
-        hi@mymac
+## 依赖
 
-## Keyboard shortcuts
-* exit: q
-* scroll up: k
-* scroll down: j
-* page up: u
-* page down: d
-* select host: space
-* search mode: /
-* exit from search result: q
-* expand tree node: o
-* collapse tree node: c
-* expand all nodes: O
-* collapse all nodes: C
+[pexpect](https://pexpect.readthedocs.io/en/latest/install.html) 
+
+## .ssh_hosts 示例
+
+    +lo
+        root@127.0.0.1 --expect [{"password:":"123456789"}] #localhost
+        docker@127.0.0.1 -p 7700 --expect [{"password:":" "}, {"$":"sudo su"}] #docker
+    +me
+        root@192.168.31.1 --expect [{"passwd":"123456789"}] #missh
+        root@192.168.31.4 --expect [{"passwd":"123456789"}, {"ps1":"server"}] #31.4
+        root@192.168.31.1 --expect [{"passwd":"123456789"}, {"#":"ssh root@192.168.31.4 && exit"}, {"Do you want to continue connecting?":"y"}, {"passwd":"123456789"}, {"ps1-prod":"\\h"}] #missh->server
+
+## 使用说明
+
+![usage](https://raw.github.com/mokyle/sshgo/master/usage.png)
+
+## 快捷键
+
+* 退出: q
+* 上一屏: k
+* 下一屏: j
+* 上翻页: u
+* 下翻页: d
+* 进入主机: space 或 Enter 或 Right
+* 搜索: /
+* 退出搜索: q
+* 展开组: o 或 Right
+* 折叠组: c 或 Left
+* 展开所有组: O
+* 折叠所有组: C
+* 上一组：PgUp 或 -
+* 下一组：PgDn 或 =
