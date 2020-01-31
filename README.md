@@ -48,7 +48,7 @@ ssh或zssh python3 [pexpect](https://pexpect.readthedocs.io/en/latest/install.ht
                     "title": "manualLocal",
                     "ssh": "k@127.0.0.1 -p 22",
                     "expect": [
-                        {"k@127.0.0.1's password:": " "},
+                        {"k@127.0.0.1's password:": "123456"},
                         {"$": "cd /tmp/"}
                     ]
                 },
