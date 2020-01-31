@@ -87,7 +87,7 @@ ssh或zssh python3 [pexpect](https://pexpect.readthedocs.io/en/latest/install.ht
 > - passwd	对应请输入密码的提示，可以同时匹配中文和英文密码提示，也支持第一次连接某个新主机时自动确认是否信任新秘钥的询问。
 > - setTitle     设置终端显示的标题。其实就是登录成功后自动执行一条命令：PROMPT_COMMAND='echo -ne "\033]0;sshToLocal\007"' 。已知深度终端是默认支持的，如果是konsole，需要设置konsole的 配置方案->标签页->标签标题格式为%w
 >
-> - ps1  或 ps1-bench 或 ps1-prod         表示登陆后自动设置终端的提示符(即bash的PS1变量）。其实就是登录成功后自动执行一条命令：export PS1='\[\e[30;46m\]lo:\w\[\e[36;42m\]▶\[\e[30;42m\]\t \$\[\e[0m\]\[\e[32m\]▶\[\e[0m\]' 。值留空时，表示使用title的值。值支持\\w和\\h变量，变量具体用法可以自行搜索bash的PS1变量，注意在这里变量需要使用双反斜杠。此脚本里面预设了PS1的格式和“ps1” “ps1-bench” “ps1-prod”三种不同配色风格。ps1的效果见下图：(如果你实际运行后▶符号显示效果不如下图完美，可以使用此项目中提供的这款字体[Hack-Regular-kai.ttf](https://github.com/mokyle/sshgo/blob/master/Hack-Regular-kai.ttf))
+> - ps1  或 ps1-bench 或 ps1-prod         表示登陆后自动设置终端的提示符(即bash的PS1变量）。其实就是登录成功后自动执行一条命令：`export PS1='\[\e[30;46m\]lo:\w\[\e[36;42m\]▶\[\e[30;42m\]\t \$\[\e[0m\]\[\e[32m\]▶\[\e[0m\]'` 。值留空时，表示使用title的值。值支持\\w和\\h变量，变量具体用法可以自行搜索bash的PS1变量，注意在这里变量需要使用双反斜杠。此脚本里面预设了PS1的格式和“ps1” “ps1-bench” “ps1-prod”三种不同配色风格。ps1的效果见下图：(如果你实际运行后▶符号显示效果不如下图完美，可以使用此项目中提供的这款字体[Hack-Regular-kai.ttf](https://github.com/mokyle/sshgo/blob/master/Hack-Regular-kai.ttf))
 
 ![screenshot](https://raw.github.com/mokyle/sshgo/master/PS1.png)
 
