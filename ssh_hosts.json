@@ -1,0 +1,47 @@
+[
+    {
+        "title": "me",
+        "expanded": false,
+        "sub_node": [
+            {
+                "title": "local",
+                "ssh": "k@127.0.0.1 -p 22",
+                "expect": [
+                    {"passwd": " "},
+                    {"ps1": "lo"},
+                    {"setTitle": "sshToLocal"}
+                ]
+            },
+            {
+                "title": "localToTemp",
+                "pre_host": "local",
+                "expect": [
+                    {"$": "cd /tmp/"},
+                    {"ps1": "inTempPath"},
+                    {"setTitle": ""}
+                ]
+            }
+        ]
+    },
+    {
+        "title": "prod",
+        "expanded": true,
+        "sub_node": [
+            {
+                "title": "manualLocal",
+                "ssh": "k@127.0.0.1 -p 22",
+                "expect": [
+                    {"k@127.0.0.1's password:": " "},
+                    {"$": "cd /tmp/"}
+                ]
+            },
+            {
+                "title": "ping",
+                "pre_host": "localToTemp",
+                "expect": [
+                    {"$": "ping -c 3 127.0.0.1 && sleep 5 && exit"}
+                ]
+            }
+        ]
+    }
+]
