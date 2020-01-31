@@ -93,6 +93,10 @@ ssh或zssh python3 [pexpect](https://pexpect.readthedocs.io/en/latest/install.ht
 
 - pre_host       值为其他主机中的title值。表示此主机配置是基于某个主机配置，有了pre_host参数就不再需要ssh参数。 比如示例文件中localToTemp主机，执行登录时先执行local主机的ssh命令，然后执行local主机的expect，然后再执行localToTemp主机的expect。
 
+## 执行图例：
+
+![screenshot](https://raw.github.com/mokyle/sshgo/master/sshgo-example.png)
+
 ## 快捷键
 
 * 上一组：PgUp 或 -

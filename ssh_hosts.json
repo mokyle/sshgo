@@ -7,7 +7,7 @@
                 "title": "local",
                 "ssh": "k@127.0.0.1 -p 22",
                 "expect": [
-                    {"passwd": " "},
+                    {"passwd": "123456"},
                     {"ps1": "lo"},
                     {"setTitle": "sshToLocal"}
                 ]
