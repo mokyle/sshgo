@@ -486,26 +486,19 @@ class SSHGO:
                 self.screen.addstr(index, len(prefix), line, curses.color_pair(self.COLOR_HIGHLIGHT))
 
         # draw scroll bar
-        if self.scroll_bar is None:
-            self.scroll_bar = self.screen.subwin(screen_lines - 2, 1, 1, screen_cols - 1)
+        self.scroll_bar = self.screen.subwin(screen_lines - 2, 1, 1, screen_cols - 1)
         self.scroll_bar.border(*(['|'] * 8))
         self.scroll_bar.noutrefresh()
-        self.screen.noutrefresh()
-        curses.doupdate()
+        # self.screen.noutrefresh()
         # draw right top point, why see https://stackoverflow.com/a/53757902
-        if self.top_right is None:
-            self.top_right = self.screen.subwin(1, 1, 0, screen_cols - 1)
+        self.top_right = self.screen.subwin(1, 1, 0, screen_cols - 1)
         self.top_right.border(*(['^'] * 8))
         self.top_right.noutrefresh()
-        self.screen.noutrefresh()
-        curses.doupdate()
         # draw right bottom point
-        if self.bottom_right is None:
-            self.bottom_right = self.screen.subwin(1, 1, screen_lines - 1, screen_cols - 1)
+        self.bottom_right = self.screen.subwin(1, 1, screen_lines - 1, screen_cols - 1)
         self.bottom_right.border(*(['v'] * 8))
         self.bottom_right.noutrefresh()
-        self.screen.noutrefresh()
-        curses.doupdate()
+        # curses.doupdate()
 
         scroll_top = int(math.ceil((self.top_line_number + 1.0) / max(len(all_nodes), screen_lines) * screen_lines - 1))
         scroll_height = int(math.ceil((len(nodes) + 0.0) / len(all_nodes) * screen_lines))
